@@ -1,23 +1,24 @@
 package ejercicio_1;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Director extends  Empleado{
+public class Director extends  Empleado {
 
     private List<Gerente> gerentes;
 
-    public  Director(String nombre, Double salario) {
+    public Director(String nombre, Double salario) {
         super(nombre, salario);
+        gerentes= new ArrayList<>();
     }
 
+    public void agregarGerente(Gerente gerente) {
+        gerentes.add(gerente);
+    }
     @Override
-    public Double SalarioTotal() {
-        Double total=0.0;
-        this.sumateA(total);
-
-        for( Gerente g : gerentes){
-            total= g.SalarioTotal();
-        }
-        return total;
+    protected List<? extends Empleado> aCargo() {
+        return gerentes;
     }
+
+
 }

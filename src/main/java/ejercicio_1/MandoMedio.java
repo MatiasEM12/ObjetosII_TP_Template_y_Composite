@@ -1,5 +1,6 @@
 package ejercicio_1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MandoMedio extends Empleado{
@@ -8,16 +9,17 @@ public class MandoMedio extends Empleado{
 
     public  MandoMedio(String nombre, Double salario) {
         super(nombre, salario);
+        lideresProyecto=new ArrayList<>();
+    }
+
+    public void agregarLiderProyecto(LiderProyecto liderProyecto) {
+        lideresProyecto.add(liderProyecto);
     }
 
     @Override
-    public Double SalarioTotal() {
-        Double total=0.0;
-        this.sumateA(total);
-
-        for( LiderProyecto l : lideresProyecto){
-            total= l.SalarioTotal();
-        }
-        return total;
+    protected List<? extends Empleado> aCargo() {
+        return lideresProyecto;
     }
+
+
 }

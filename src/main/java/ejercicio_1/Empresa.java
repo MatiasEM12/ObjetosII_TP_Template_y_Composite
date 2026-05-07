@@ -21,7 +21,11 @@ public class Empresa {
     }
 
     public double  montoTotalSalarial(){
-        return 0;
+        Double salario=0.0;
+        for(Director director: directores){
+            salario+=director.SalarioTotal();
+        }
+        return salario;
     }
 
     private void validarNombre(String nombre) {

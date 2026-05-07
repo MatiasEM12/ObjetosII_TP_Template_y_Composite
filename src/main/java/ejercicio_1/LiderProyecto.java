@@ -1,17 +1,24 @@
 package ejercicio_1;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class LiderProyecto extends Empleado{
+public class LiderProyecto extends Empleado {
 
     private List<EmpleadoRegular> empleadosRegulares;
 
-    public  LiderProyecto(String nombre, Double salario) {
+    public LiderProyecto(String nombre, Double salario) {
         super(nombre, salario);
+        empleadosRegulares= new ArrayList<>();
+    }
+
+    public void agregarEmpleadoRegular(EmpleadoRegular empleadoRegular) {
+        empleadosRegulares.add(empleadoRegular);
     }
 
     @Override
-    public Double SalarioTotal() {
-        return 0.0;
+    protected List<? extends Empleado> aCargo() {
+        return empleadosRegulares;
     }
+
 }

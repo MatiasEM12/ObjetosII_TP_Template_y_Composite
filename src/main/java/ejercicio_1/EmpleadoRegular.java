@@ -1,5 +1,8 @@
 package ejercicio_1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EmpleadoRegular extends Empleado{
 
     public EmpleadoRegular(String nombre, Double salario) {
@@ -7,8 +10,9 @@ public class EmpleadoRegular extends Empleado{
     }
 
     @Override
-    public Double SalarioTotal() {
-        Double sumate=0.0;
-        return this.sumateA(sumate);
+    protected List<? extends Empleado> aCargo() {
+        return new ArrayList<>();
     }
+
+
 }

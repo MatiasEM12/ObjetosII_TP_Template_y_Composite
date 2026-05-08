@@ -9,8 +9,9 @@ public class EmpresaTest {
 
     @Test
     public void MontoSalarialTest(){
-        var empresa = new Empresa("Laser X");
         var director= new Director("Director 1", 15000.0);
+        var empresa = new Empresa("Laser X",director);
+
         var gerente = new Gerente("Gerente 1", 10000.0);
         var mandoMedio = new MandoMedio("Mando Medio 1", 7000.0);
         var liderProyecto = new LiderProyecto("Lider Proyecto 1", 5000.0);
@@ -21,7 +22,7 @@ public class EmpresaTest {
         gerente.agregarMandoMedio(mandoMedio);
         director.agregarGerente(gerente);
 
-        empresa.agregarDirector(director);
+
 
         Double montoSalarialTotal = empresa.montoTotalSalarial();
 
@@ -30,9 +31,10 @@ public class EmpresaTest {
     }
      @Test
     public void ArbolSalarial(){
-         var empresa = new Empresa("Laser X");
-
          var director= new Director("Director 1", 15000.0);
+         var empresa = new Empresa("Laser X",director);
+
+
 
          //rama uno
 
@@ -80,7 +82,6 @@ public class EmpresaTest {
 
          liderProyecto3.agregarEmpleadoRegular(empleadoRegular4);
 
-         empresa.agregarDirector(director);
 
          assertEquals(90000.0, empresa.montoTotalSalarial(), 0.001);
      }

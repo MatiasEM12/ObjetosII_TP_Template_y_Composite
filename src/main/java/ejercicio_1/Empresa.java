@@ -9,10 +9,11 @@ public class Empresa {
     private String nombre;
     private List<Director> directores;
 
-    public Empresa(String nombre) {
+    public Empresa(String nombre,Director director) {
         validarNombre(nombre);
         this.nombre = nombre;
         directores = new ArrayList<>();
+        directores.add(director);
     }
 
     public void agregarDirector(Director director){
@@ -20,7 +21,7 @@ public class Empresa {
         this.directores.add(director);
     }
 
-    public double  montoTotalSalarial(){
+    public Double  montoTotalSalarial(){
         Double salario=0.0;
         for(Director director: directores){
             salario+=director.SalarioTotal();

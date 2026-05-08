@@ -4,25 +4,18 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HistoriaDeUsuario implements ItemTrabajo {
+public class Proyecto {
 
     private String nombre;
     private List<ItemTrabajo> items;
 
-    public HistoriaDeUsuario(String nombre,ItemTrabajo item) {
+    public Proyecto(String nombre, ItemTrabajo item) {
         this.nombre = nombre;
-        items=new ArrayList<>();
-        items.add(item);
-
-    }
-
-
-    public void agregar(ItemTrabajo item) {
+        this.items=new ArrayList<>();
         items.add(item);
     }
 
-    @Override
-    public Duration calcularTiempo() {
+    public Duration duracionProyecto() {
         Duration total = Duration.ZERO;
 
         for(ItemTrabajo t : items) {
@@ -32,4 +25,3 @@ public class HistoriaDeUsuario implements ItemTrabajo {
         return total;
     }
 }
-

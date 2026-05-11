@@ -12,6 +12,6 @@ public abstract class Remera {
         return precioFinal + (precioFinal * recargoComercial);
     }
 
-    public abstract Double calcularRecargo();
+    protected abstract Double calcularRecargo();
 }
 

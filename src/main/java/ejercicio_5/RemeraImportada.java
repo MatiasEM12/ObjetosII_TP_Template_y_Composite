@@ -10,7 +10,7 @@ public class RemeraImportada extends Remera {
     }
 
     @Override
-    public Double calcularRecargo() {
+    protected Double calcularRecargo() {
         return this.precioUnitario + (this.precioUnitario * RECARGO) + (this.precioUnitario * IMPUESTO_ADUANERO);
     }
 

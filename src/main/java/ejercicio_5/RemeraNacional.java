@@ -10,9 +10,9 @@ public class RemeraNacional extends Remera {
     }
 
     @Override
-    public Double calcularRecargo() {
+    protected Double calcularRecargo() {
         return this.precioUnitario + (this.precioUnitario * RECARGO) + (this.precioUnitario * BONIFICACION);
     }
 
- 
+
 }

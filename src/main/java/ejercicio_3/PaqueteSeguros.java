@@ -1,24 +1,23 @@
 package ejercicio_3;
 
-import java.lang.classfile.instruction.ThrowInstruction;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PaqueteSeguros implements Paquete {
 
-    private final Double DESCUENTO_ACUMULATIVO=0.05;
-    private List<Seguro> seguros= new ArrayList<>();
-    private List<Paquete> paquetes=new ArrayList<>();
+    private final Double DESCUENTO_ACUMULATIVO = 0.05;
+    private List<Seguro> seguros = new ArrayList<>();
+    private List<Paquete> paquetes = new ArrayList<>();
 
     public PaqueteSeguros(Seguro seguro) {
         this.seguros.add(seguro);
     }
 
-    public void agregarSeguro(Seguro seguro){
+    public void agregarSeguro(Seguro seguro) {
         this.seguros.add(seguro);
     }
 
-    public void agregarPaquete(Paquete paquete){
+    public void agregarPaquete(Paquete paquete) {
         paquetes.add(paquete);
     }
 
@@ -37,6 +36,7 @@ public class PaqueteSeguros implements Paquete {
 
         return total;
     }
+
     @Override
     public Double subtotalSeguros() {
 
@@ -46,6 +46,7 @@ public class PaqueteSeguros implements Paquete {
 
         return total - (total * descuento);
     }
+
     @Override
     public int cantidadSeguros() {
 
@@ -58,3 +59,4 @@ public class PaqueteSeguros implements Paquete {
         return total;
     }
 }
+//el cliente solo "conose/comunica con la interface/abstracta no sabe de que tipo es hoja o compuesto."

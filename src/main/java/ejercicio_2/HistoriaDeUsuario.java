@@ -7,11 +7,10 @@ import java.util.List;
 public class HistoriaDeUsuario implements ItemTrabajo {
 
     private String nombre;
-    private List<ItemTrabajo> items;
+    private List<ItemTrabajo> items = new ArrayList<>();
 
-    public HistoriaDeUsuario(String nombre,ItemTrabajo item) {
+    public HistoriaDeUsuario(String nombre, ItemTrabajo item) {
         this.nombre = nombre;
-        items=new ArrayList<>();
         items.add(item);
 
     }
@@ -25,7 +24,7 @@ public class HistoriaDeUsuario implements ItemTrabajo {
     public Duration calcularTiempo() {
         Duration total = Duration.ZERO;
 
-        for(ItemTrabajo t : items) {
+        for (ItemTrabajo t : items) {
             total = total.plus(t.calcularTiempo());
         }
 

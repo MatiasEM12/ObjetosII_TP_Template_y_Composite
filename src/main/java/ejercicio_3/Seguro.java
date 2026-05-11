@@ -1,14 +1,10 @@
 package ejercicio_3;
 
-public abstract class Seguro {
-    protected Double monto;
+public interface Seguro {
+    public Double subtotalSeguros();
 
-    protected Seguro(Double monto) {
-        this.monto = monto;
-    }
 
-    public Double sumateA(Double total){
-        return total+=this.monto;
-    }
+    Double subtotalSinDescuento();
 
+    int cantidadSeguros();
 }

@@ -29,11 +29,14 @@ public class Empresa {
     }
 
     private void validarNombre(String nombre) {
-        if (nombre == null) throw new NullPointerException("El nombre no puede ser nulo");
+        if (nombre == null) throw new IllegalArgumentException("El nombre no puede ser nulo");
         if (nombre.isEmpty()) throw new IllegalArgumentException("El nombre no puede ser vacio");
+        if (nombre.length() > 50) throw new IllegalArgumentException("El nombre no puede tener mas de 50 caracteres");
+        if (nombre.length() < 3) throw new IllegalArgumentException("El nombre no puede tener menos de 3 caracteres");
     }
 
     private void validarDirector(Empleado director) {
         if (director == null) throw new NullPointerException("El director no puede ser nulo");
+
     }
 }

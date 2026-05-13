@@ -10,6 +10,9 @@ public abstract class Calculador {
 
 
     public final double calcularPrecio(double precioProducto) {
+
+        validarPrecio(precioProducto);
+        
         double precioTotal = precioProducto;
         if (of(mesEnPromocion).equals(now().getMonth())) {
             precioTotal += precioProducto * porcentajePromocion();
@@ -24,5 +27,16 @@ public abstract class Calculador {
 
     protected abstract double porcentajePromocion();
 
-    ;
+    private void validarLog(LogTransaction log) {
+        if (log == null) throw new IllegalArgumentException("El log no puede ser nulo");
+    }
+
+    private void validarMesEnPromocion(int mesEnPromocion) {
+        if (mesEnPromocion < 1 || mesEnPromocion > 12)
+            throw new IllegalArgumentException("El mes en promocion debe ser un numero entre 1 y 12");
+    }
+
+    private void validarPrecio(double precio) {
+        if (precio < 0) throw new IllegalArgumentException("El precio no puede ser negativo");
+    }
 }

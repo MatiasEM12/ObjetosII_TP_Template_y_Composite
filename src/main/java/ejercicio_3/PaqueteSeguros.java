@@ -10,10 +10,12 @@ public class PaqueteSeguros implements Seguro {
 
 
     public PaqueteSeguros(Seguro seguro) {
+        validarSeguro(seguro);
         this.seguros.add(seguro);
     }
 
     public void agregarSeguro(Seguro seguro) {
+        validarSeguro(seguro);
         this.seguros.add(seguro);
     }
 
@@ -50,5 +52,9 @@ public class PaqueteSeguros implements Seguro {
         }
 
         return total;
+    }
+
+    private void validarSeguro(Seguro seguro) {
+        if (seguro == null) throw new IllegalArgumentException("El seguro no puede ser nulo");
     }
 }

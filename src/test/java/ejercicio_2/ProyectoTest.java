@@ -20,4 +20,6 @@ public class ProyectoTest {
         assertEquals(Duration.ofHours(10), proyecto.duracionProyecto());
 
     }
+
+
 }

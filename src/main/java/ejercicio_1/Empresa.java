@@ -6,7 +6,7 @@ import java.util.List;
 public class Empresa {
     private String nombre;
     private List<Empleado> directores = new ArrayList<>();
-    ;
+
 
     public Empresa(String nombre, Empleado director) {
         validarNombre(nombre);

@@ -4,8 +4,7 @@ public class CalculadorNoJubilado extends Calculador {
 
 
     public CalculadorNoJubilado(LogTransaction log, int mesEnPromocion) {
-        this.log = log;
-        this.mesEnPromocion = mesEnPromocion;
+        super(log, mesEnPromocion);
     }
 
     @Override

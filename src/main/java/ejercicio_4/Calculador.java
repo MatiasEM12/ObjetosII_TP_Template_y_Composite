@@ -9,10 +9,18 @@ public abstract class Calculador {
     protected int mesEnPromocion;
 
 
+    protected Calculador(LogTransaction log, int mesEnPromocion) {
+        validarLog(log);
+        validarMesEnPromocion(mesEnPromocion);
+        this.log = log;
+        this.mesEnPromocion = mesEnPromocion;
+    }
+
+
     public final double calcularPrecio(double precioProducto) {
 
         validarPrecio(precioProducto);
-        
+
         double precioTotal = precioProducto;
         if (of(mesEnPromocion).equals(now().getMonth())) {
             precioTotal += precioProducto * porcentajePromocion();

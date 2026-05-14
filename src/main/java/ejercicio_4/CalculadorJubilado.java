@@ -3,8 +3,7 @@ package ejercicio_4;
 public class CalculadorJubilado extends Calculador {
 
     public CalculadorJubilado(LogTransaction log, int mesEnPromocion) {
-        this.log = log;
-        this.mesEnPromocion = mesEnPromocion;
+        super(log, mesEnPromocion);
     }
 
     @Override

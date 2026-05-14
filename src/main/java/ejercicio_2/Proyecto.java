@@ -7,25 +7,29 @@ import java.util.List;
 public class Proyecto {
 
     private String nombre;
-    private List<ItemTrabajo> items;
+    private List<ItemTrabajo> historiasDeUsuario = new ArrayList<>();
 
-    public Proyecto(String nombre, ItemTrabajo item) {
+    public Proyecto(String nombre, ItemTrabajo uh) {
 
-        validarItem(item);
+        validarhistoriasDeUsuario(uh);
         validarNombre(nombre);
         this.nombre = nombre;
-        this.items = new ArrayList<>();
-        items.add(item);
+        historiasDeUsuario.add(uh);
     }
 
     public Duration duracionProyecto() {
         Duration total = Duration.ZERO;
 
-        for (ItemTrabajo t : items) {
+        for (ItemTrabajo t : historiasDeUsuario) {
             total = total.plus(t.calcularTiempo());
         }
 
         return total;
+    }
+
+    public void agregarHistoriaDeUsuario(ItemTrabajo hu) {
+        validarhistoriasDeUsuario(hu);
+        historiasDeUsuario.add(hu);
     }
 
     private void validarNombre(String nombre) {
@@ -35,7 +39,7 @@ public class Proyecto {
         if (nombre.length() < 3) throw new IllegalArgumentException("El nombre no puede tener menos de 3 caracteres");
     }
 
-    private void validarItem(ItemTrabajo item) {
-        if (item == null) throw new IllegalArgumentException("El item no puede ser nulo");
+    private void validarhistoriasDeUsuario(ItemTrabajo hu) {
+        if (hu == null) throw new IllegalArgumentException("El item no puede ser nulo");
     }
 }

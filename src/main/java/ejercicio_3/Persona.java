@@ -3,18 +3,16 @@ package ejercicio_3;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaqueteSeguros implements Seguro {
+public class Persona {
 
-    private final static Double DESCUENTO_ACUMULATIVO = 0.05;
-    private List<Seguro> seguros = new ArrayList<>();
     private String nombre;
+    private List<Seguro> seguros = new ArrayList<>();
 
-
-    public PaqueteSeguros(String nommbre, Seguro seguro) {
-        validarNombre(nommbre);
-        validarSeguro(seguro);
-        this.seguros.add(seguro);
-        this.nombre = nommbre;
+    public Persona(String nombre, List<Seguro> seguros) {
+        validarNombre(nombre);
+        validarSeguros(seguros);
+        this.nombre = nombre;
+        this.seguros = seguros;
     }
 
     public void agregarSeguro(Seguro seguro) {
@@ -22,39 +20,17 @@ public class PaqueteSeguros implements Seguro {
         this.seguros.add(seguro);
     }
 
-
-    @Override
-    public Double subtotalSinDescuento() {
-
+    public Double totalSeguros() {
         Double total = 0.0;
-
         for (Seguro seguro : seguros) {
-            total += seguro.subtotalSinDescuento();
+            total += seguro.subtotalSeguros();
         }
-
         return total;
     }
 
-    @Override
-    public Double subtotalSeguros() {
-
-        Double total = subtotalSinDescuento();
-
-        double descuento = cantidadSeguros() * DESCUENTO_ACUMULATIVO;
-
-        return total - (total * descuento);
-    }
-
-
-    public int cantidadSeguros() {
-
-        int total = 0;
-
-        for (Seguro seguro : seguros) {
-            total += seguro.cantidadSeguros();
-        }
-
-        return total;
+    private void validarSeguros(List<Seguro> seguros) {
+        if (seguros == null) throw new IllegalArgumentException("La lista de seguros no puede ser nula");
+        if (seguros.isEmpty()) throw new IllegalArgumentException("La lista de seguros no puede estar vacía");
     }
 
     private void validarSeguro(Seguro seguro) {

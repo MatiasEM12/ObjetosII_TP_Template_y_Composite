@@ -8,16 +8,17 @@ public class Comercio {
 
 
     public Comercio(String nombre) {
+        validarNombre(nombre);
         this.nombre = nombre;
 
     }
 
-    public Double calcularPrecioRemeraImportada(RemeraImportada remera) {
+    public Double calcularPrecioRemeraImportada(Remera remera) {
         validarRemera(remera);
         return remera.calcularPrecioDeVenta(RECARGO_FINAL_IMPORTADO);
     }
 
-    public Double calcularPrecioRemeraNacional(RemeraNacional remera) {
+    public Double calcularPrecioRemeraNacional(Remera remera) {
         validarRemera(remera);
         return remera.calcularPrecioDeVenta(RECARGO_FINAL_NACIONAL);
     }

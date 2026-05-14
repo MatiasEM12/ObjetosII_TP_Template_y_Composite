@@ -11,7 +11,7 @@ public abstract class Remera {
     public final Double calcularPrecioDeVenta(Double recargoComercial) {
         validarRecargoComercial(recargoComercial);
         var precioFinal = this.calcularRecargo();
-        return precioFinal + (precioFinal * recargoComercial);
+        return precioFinal + (this.precioUnitario * recargoComercial);
     }
 
     protected abstract Double calcularRecargo();
